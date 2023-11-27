@@ -1,0 +1,33 @@
+#! /usr/bin/env ruby
+
+require 'io/console'
+require 'matrix'
+require 'byebug'
+
+Dir.glob("lib/*.rb").each do |file|
+  require_relative file
+end
+
+problem = ARGV.shift
+klass_name = "D#{problem.sub("-", "P")}".to_sym
+klass_name = "#{klass_name}::#{klass_name}"
+input_file = ARGV.shift
+$output_file = File.new(File.join(__dir__, "logs", "#{problem}.txt"), "w")
+
+def $stdout.write string
+  $output_file.write string
+  super
+end
+
+klass = Object::const_get(klass_name)
+problem = klass.new()
+start_time  = Time.now
+input = File.readlines(input_file)
+input.map!{|line| line.strip} unless klass.const_defined?("NO_STRIP")
+problem.run(input)
+end_time  = Time.now
+
+duration = (end_time - start_time)*1000
+duration = (duration *100).round / 100.0
+
+puts "Duration: #{duration}ms"
