@@ -1,0 +1,2 @@
+Sum: 55123
+Duration: 10.42ms
