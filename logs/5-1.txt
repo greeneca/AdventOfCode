@@ -1,0 +1,2 @@
+Min: 510109797
+Duration: 1.59ms
