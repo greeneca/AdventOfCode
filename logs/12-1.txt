@@ -1,0 +1,2 @@
+Sum: 7163
+Duration: 130.24ms
