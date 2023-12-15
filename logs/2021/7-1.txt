@@ -1,0 +1,2 @@
+Fuel Spent: 344138
+Duration: 0.29ms

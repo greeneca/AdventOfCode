@@ -1,0 +1,2 @@
+Point Count: 671
+Duration: 4.39ms

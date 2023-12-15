@@ -1,0 +1,2 @@
+Number of Paths: 4754
+Duration: 10.12ms

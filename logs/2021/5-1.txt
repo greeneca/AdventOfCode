@@ -1,0 +1,2 @@
+Crossing Points: 7473
+Duration: 102.77ms

@@ -1,0 +1,2 @@
+Count: 3344
+Duration: 40.14ms
