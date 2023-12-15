@@ -1,0 +1,2 @@
+Life Support Rating: 4481199
+Duration: 8.25ms

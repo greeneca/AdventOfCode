@@ -1,0 +1,2 @@
+Fuel Spent for 482: 94862124
+Duration: 22.72ms

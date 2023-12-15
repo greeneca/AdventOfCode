@@ -1,0 +1,2 @@
+Power Consumption: 3320834
+Duration: 9.97ms

@@ -1,0 +1,2 @@
+Winning Score: 46920
+Duration: 31.6ms

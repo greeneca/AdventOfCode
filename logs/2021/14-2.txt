@@ -1,0 +1,2 @@
+Poly Score: 8336623059567
+Duration: 11.17ms
