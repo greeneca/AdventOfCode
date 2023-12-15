@@ -4,22 +4,29 @@
 
  The following command creates the two .rb files and downloads the input file.
 
- * Ensure that YEAR is set in setup script
  * Create `.session_token` file with a session token
 
-  $ ./setup \<day\>
+  $ ./setup (\<year\>) \<day\>
 
 Example:
 
   $ ./setup 1
+
+Or:
+
+  $ ./setup 2020 1
 
 ## Running
 
   The following command runs the approiate problem code with the given input,
   times the execution, and saves all stdout to a log file in the logs dir.
 
-  $ ./advent \<problem\> \<input path\>
+  $ ./advent (\<year\>) \<problem\> \<input file\>
 
 Example:
 
-  $ ./advent 1-1 inputs/day1.txt
+  $ ./advent 1-1 1.txt
+
+Or:
+
+  $ ./advent 2020 1-1 1.txt
