@@ -1,2 +1,0 @@
-Power: 263211
-Duration: 4.96ms

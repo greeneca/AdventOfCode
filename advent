@@ -2,17 +2,28 @@
 
 require 'io/console'
 require 'matrix'
+require 'date'
 require 'byebug'
 
-Dir.glob("lib/*.rb").each do |file|
+year = Date.today.year.to_s
+
+problem = ARGV.shift
+if problem.index("-").nil?
+  year = problem
+  problem = ARGV.shift
+end
+
+Dir.glob("lib/#{year}/*.rb").each do |file|
   require_relative file
 end
 
-problem = ARGV.shift
 klass_name = "D#{problem.sub("-", "P")}".to_sym
 klass_name = "#{klass_name}::#{klass_name}"
-input_file = ARGV.shift
-$output_file = File.new(File.join(__dir__, "logs", "#{problem}.txt"), "w")
+input_file = File.join("inputs", year, ARGV.shift)
+
+log_folder = File.join(__dir__, "logs", year.to_s)
+Dir.mkdir(log_folder) unless Dir.exists?(log_folder)
+$output_file = File.new(File.join(log_folder, "#{problem}.txt"), "w")
 
 def $stdout.write string
   $output_file.write string
