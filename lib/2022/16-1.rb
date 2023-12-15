@@ -20,35 +20,41 @@ module D16P1
           end
         end
       end
-      pressure = max_pressure(@map["AA"], [], [], 30)
+      @cache = {}
+      pressure = max_pressure(@map["AA"], {}, 30)
 
       puts "Pressure = #{pressure}"
     end
 
-    def max_pressure(current, opened, visited, time_left)
-      byebug if opened.count == @map.count
+    def max_pressure(current, opened, time_left)
+      key = "#{current.name}#{opened.keys.join("")}#{time_left}"
+      if @cache[key]
+        return @cache[key]
+      end
       if time_left <= 0
         return 0
       end
       best = 0
       value = 0
       current_opened = opened.dup
-      next_visited = visited.dup.push(current.name)
-      unless opened.include? current
-        current_opened.push(current)
-        time_left -= 1 if current.flow_rate > 0
-        value = current.pressure_released(time_left)
+      if current_opened[current.name].nil?
+        if current.flow_rate > 0
+          time_left -= 1 
+          value = current.pressure_released(time_left)
+          current_opened[current.name] = true
+        end
       end
       current.children.each do |child|
-        best = [best, value+max_pressure(child, current_opened, next_visited, time_left-1)].max
+        best = [best, value+max_pressure(child, current_opened, time_left-1)].max
       end
-      puts "#{best} -> #{next_visited.to_s}"
+      #puts "#{time_left}:#{best} -> #{current_opened.keys.join(",")}"
+      @cache[key] = best
       best
     end
   end
   class Room
 
-    attr_accessor :flow_rate, :opened
+    attr_accessor :flow_rate
     attr_reader :children, :name
 
     def initialize(name)
@@ -72,7 +78,7 @@ module D16P1
     end
 
     def to_s
-      "#{@name}: #{@flow_rate} -> #{@children.map{|r| r.name}.to_s}"
+      "#{@name}"
     end
   end
 end

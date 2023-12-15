@@ -1,0 +1,2 @@
+Pressure = 1706
+Duration: 812.17ms
