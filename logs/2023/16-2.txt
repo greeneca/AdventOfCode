@@ -1,0 +1,2 @@
+Max: 7793
+Duration: 10815.75ms
