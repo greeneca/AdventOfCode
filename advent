@@ -22,7 +22,7 @@ klass_name = "#{klass_name}::#{klass_name}"
 input_file = File.join("inputs", year, ARGV.shift)
 
 log_folder = File.join(__dir__, "logs", year.to_s)
-Dir.mkdir(log_folder) unless Dir.exists?(log_folder)
+Dir.mkdir(log_folder) unless Dir.exist?(log_folder)
 $output_file = File.new(File.join(log_folder, "#{problem}.txt"), "w")
 
 def $stdout.write string
