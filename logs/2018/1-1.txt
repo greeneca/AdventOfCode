@@ -1,0 +1,2 @@
+Frequency: 474
+Duration: 0.68ms

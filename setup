@@ -17,13 +17,13 @@ end
 url = "https://adventofcode.com/#{year}/day/#{day}/input"
 
 input_folder = File.join(__dir__, "inputs", year.to_s)
-Dir.mkdir(input_folder) unless Dir.exists?(input_folder)
+Dir.mkdir(input_folder) unless Dir.exist?(input_folder)
 File.open(File.join(input_folder, "#{day}.txt"), "w") do |io|
   io.write `curl --cookie session=#{SESSION} #{url}`
 end
 
 lib_folder = File.join(__dir__, "lib", year.to_s)
-Dir.mkdir(lib_folder) unless Dir.exists?(lib_folder)
+Dir.mkdir(lib_folder) unless Dir.exist?(lib_folder)
 ["1", "2"].each do |problem|
   klass_name = "D#{day}P#{problem}".to_sym
   klass_name = "#{klass_name}::#{klass_name}"
