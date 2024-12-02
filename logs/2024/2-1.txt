@@ -1,0 +1,2 @@
+Safe: 242
+Duration: 2.82ms

@@ -1,0 +1,2 @@
+Distance: 1223326
+Duration: 1.92ms
