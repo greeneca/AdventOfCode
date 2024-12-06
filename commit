@@ -1,0 +1,13 @@
+#! /bin/bash
+
+[[ -z "$1" ]] && { echo "Include day as option"; exit 1; }
+
+cd inputs
+git add .
+git commit -m "Adding up to day $1"
+git push
+
+cd ..
+git add .
+git commit -m "Adding up to day $1"
+git push
