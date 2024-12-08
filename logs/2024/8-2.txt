@@ -1,0 +1,2 @@
+Antinodes: 839
+Duration: 4.79ms
