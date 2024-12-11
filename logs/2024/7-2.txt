@@ -1,2 +1,2 @@
 Sum: 97902809384118
-Duration: 15.01ms
+Duration: 15.31ms
